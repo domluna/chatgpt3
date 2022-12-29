@@ -1,6 +1,6 @@
 # ChatGPT3
 
-[![Demo](./chatgpt3.webm)](./chatgpt3.webm)
+[![Demo](https://youtu.be/6-5w1qYstDY)](https://youtu.be/6-5w1qYstDY)
 
 
 A CLI chatbot to mimic ChatGPT.
