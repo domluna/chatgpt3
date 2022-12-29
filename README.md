@@ -1,6 +1,6 @@
 # ChatGPT3
 
-[![Demo](https://youtu.be/6-5w1qYstDY)](https://youtu.be/6-5w1qYstDY)
+[![Demo](./thumbnail.jpg)](https://youtu.be/6-5w1qYstDY)
 
 
 A CLI chatbot to mimic ChatGPT.
