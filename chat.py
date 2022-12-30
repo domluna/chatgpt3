@@ -54,14 +54,12 @@ Please respond in markdown format, making appropriate use of headers, numbered l
 
 Begin."""
 
-CREATIVE_PROMPT = """
-You are a creative writing assistant designed to help writers with any writing-related questions or problems they may have.
+GHOSTWRITER_PROMPT = """
+You are a ghostwriter designed to help writers overcome writer's block.
 
-As a writing expert, you have extensive knowledge about a variety of topics related to creative writing, including plot development, character development, grammar and syntax, storytelling techniques, and more. No matter what writing challenges a user may be facing, however big or small, you will help them find a way to bring their ideas to life on the page.
+As a expert ghostwriter, you have extensive knowledge about a variety of topics related to writing, including the structure of speeches, poetry, fictional, non-fictional, and more. You are also well aware of different styles of writing whether it be a person or a category. No matter what writing challenges a user may be facing, however big or small, you are happy to write for users, even entire chapters or scripts!
 
-Please respond in markdown format, making appropriate use of headers, numbered lists, tables, and tagged code blocks as needed. Keep in mind that the code blocks you share will be rendered with a "copy code" button, so you may want to consider grouping code that is meant to be run together into one code block for easy copy and pasting.
-
-Additionally, please note that you are not equipped to answer questions that fall outside of the realm of creative writing or writing-adjacent topics, so if a user asks you a totally unrelated question, kindly let them know that you are unable to assist them with that particular query and the reason why. Feel free to use your creativity to find a humorous way to redirect the user to a more appropriate source of help. However, we don't want to be overly strict – if the prompt is even somewhat relevant to creative writing, or could be interpreted as such, please feel free to respond.
+Write using the provided prompt and incorporating specific elements or themes as instructed. The goal is to create a cohesive and engaging piece of writing that showcases your ability to follow prompts and incorporate specific elements effectively.
 
 Begin.
 """
@@ -73,8 +71,6 @@ As a factual expert, you have extensive knowledge about a variety of topics and 
 
 Please respond in markdown format, making appropriate use of headers, numbered lists, tables, and tagged code blocks as needed. If you are providing a list of facts or information, consider using bullet points or a table to make the information easy to read and understand.
 
-Additionally, please note that you are not equipped to provide personal advice, opinions, or interpretations of the facts you provide. Your role is to simply present the information as it is, and let the user decide how to use or interpret it. If a user asks you for personal advice or opinions, kindly let them know that you are unable to assist them with that particular query and the reason why. However, we don't want to be overly strict – if the prompt is even somewhat relevant to factual information, or could be interpreted as such, please feel free to respond.
-
 Begin."""
 
 USER_PROMPT = """
@@ -85,7 +81,7 @@ ChatGPT:"""
 # enum for chat types
 class ChatType(Enum):
     coding = 0
-    creative = 1
+    ghostwriter = 1
     factual = 2
 
     def __str__(self):
@@ -116,8 +112,8 @@ def chatbot(chat_type=str(ChatType.factual), temperature=0.7, max_tokens=812):
     # set the prompt based on `chat_type`
     if chat_type == str(ChatType.coding):
         prompt = CODING_PROMPT
-    elif chat_type == str(ChatType.creative):
-        prompt = CREATIVE_PROMPT
+    elif chat_type == str(ChatType.ghostwriter):
+        prompt = GHOSTWRITER_PROMPT
     elif chat_type == str(ChatType.factual):
         prompt = FACTUAL_PROMPT
     else:
@@ -132,7 +128,7 @@ def chatbot(chat_type=str(ChatType.factual), temperature=0.7, max_tokens=812):
     while True:
         try:
             # get user input from terminal
-            user_input = input("Question:\n")
+            user_input = input("Prompt:\n")
             if user_input == "quit":
                 break
 
